@@ -1,0 +1,80 @@
+DIRECTORY STRUCTURE
+
+
+POS Tagger
+
+Directory structure:
+
+train.txt --> Data for training and development
+test.txt --> Data for testing
+
+
+
+Output Format:
+
+pos_tagger/
+--------code/
+--------input/
+----------------train.txt
+----------------test.txt
+----------------test.tag --> tagged data for evaluation purpose
+--------output/
+----------------accuracy.txt --> Computed Acccuracy
+----------------test.out --> Tagged output from the system
+--------pos_tagger_writeup.pdf
+
+
+1. Preprocessing : 'train.txt' and 'test.txt' first processed using nltk to convert all tags to uppercase and then generating corressponding labelled and unlabelled dataset.
+
+2. Feature Engineering:
+	
+	for each word in sentence, i have decided to have following features:
+	
+	 "        'word': word itself
+    "        'is_first': is first word in sentence
+    "        'is_last': is last word in sentence
+    "        'is_all_caps': is uppercase word
+    "        'is_all_lower': is lowercase word
+    "        'first_prefix': first prefix char of word
+    "        'second_prefix': second prefix char of word
+    "        'third_prefix': third prefix char of word
+    "        'first_suffix': first suffix char of word
+    "        'second_suffix': second suffix char of word
+    "        'suffix-3': third suffix char of word
+    "        'is_capitalized': is first char of word is capital
+    "        'prev_word': previous word if present
+    "        'next_word': next word if present
+    "        'hyphen_present': is hyphen present in word
+    "        'is_numeric': is word is digit
+    "        'capitals_inside': is word contain capital char inside
+
+3. model :  I have trained 3 models decisionTree, random_forest, keras model
+
+4. Accuracy : 
+
+---decision_tree---
+
+accuracy = 0.862107623318
+precision = 0.871314775005
+recall_score = 0.862107623318
+f1_score = 0.859633559493
+
+
+---random_tree---
+
+accuracy = 0.862107623318
+precision = 0.871314775005
+recall_score = 0.862107623318
+f1_score = 0.859633559493
+
+
+---keras model---
+
+accuracy = 0.9461883410744603
+precision = 0.952873517643892
+recall_score = 0.9461883410744603
+f1_score = 0.932987435826454
+
+
+5. Result : After training all different model, i can say keras model is best. 
+
